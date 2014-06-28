@@ -3754,6 +3754,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/og-image.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 486562,
+		"inputAbbreviatedPath": "\/images\/og-image.jpg",
+		"outputAbbreviatedPath": "\/images\/og-image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/Skandalsnurran_sajt.png": {
 		"fileType": 32768,
 		"ignore": 0,
