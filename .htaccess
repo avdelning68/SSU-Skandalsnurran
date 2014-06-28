@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^(?!www\.)([^.]+)\.dev3\.se$ [NC]
+RewriteCond %{REQUEST_URI}::%1 !^/([^/]+).*?::\1
+RewriteRule ^(.*)$ /%1/$1 [L]
+
+AddType image/svg+xml svg svgz
+AddEncoding gzip svgz

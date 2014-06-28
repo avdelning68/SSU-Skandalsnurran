@@ -1,0 +1,492 @@
+
+@import "foundation/components/type";
+@import "foundation/components/grid";
+@import "ssuprofile";
+@import "settings";   
+
+// Or selectively include components
+// @import
+//   "foundation/components/accordion",
+//   "foundation/components/alert-boxes",
+//   "foundation/components/block-grid",
+//   "foundation/components/breadcrumbs",
+//   "foundation/components/button-groups",
+//   "foundation/components/buttons",
+//   "foundation/components/clearing",
+//   "foundation/components/dropdown",
+//   "foundation/components/dropdown-buttons",
+//   "foundation/components/flex-video",
+//   "foundation/components/forms",
+//   "foundation/components/grid",
+//   "foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/magellan",
+//   "foundation/components/orbit",
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+//   "foundation/components/side-nav",
+//   "foundation/components/split-buttons",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switch",
+//   "foundation/components/tables",
+//   "foundation/components/tabs",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/top-bar",
+//   "foundation/components/type",
+//   "foundation/components/offcanvas",
+//   "foundation/components/visibility";
+
+$bildt-blue-color: #53c0e0;
+$bildt-orange-color: #f09235; 
+
+
+body {
+	background: #000 center center;
+	background-size: cover;
+	min-height: 100vh;
+	height: 100%;
+	width: 100%; 
+} 
+
+body {
+	overflow-y: scroll;
+}
+
+#play-pause {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width:10%;
+	text-align: right;
+	font-size: 2em;
+	a {
+		color: #fff;
+	}
+	a:hover {
+		color: $bildt-blue-color;
+	}
+	a:before {
+		font-family: "SSUIcons";
+	}
+	> .play:before {
+		content: "O";
+		@include opacity(.25);
+	}
+
+	> .pause:before {
+		content: "O";
+	}
+
+	span {
+		display: none; 
+	}
+}
+
+.column, .columns {
+	padding-left: 0.9375em !important;
+	padding-right: 0.9375em !important;
+}
+
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	padding: 2em 0 4em;
+	@include background-image(linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,0)));
+	pointer-events: none;
+
+}
+
+footer {
+	padding: 0 0 40px;
+	display: none;
+	position: relative; 
+	z-index: 999;
+}
+
+#ssu-logo {
+	font-size: 1em;
+	line-height: 1em;
+	a {
+		pointer-events: auto;
+	}
+	img {
+		height: 3.2em;
+		width: auto;
+	}
+}
+
+section {
+
+	min-height: 100vh;
+
+	.spin-top {
+		display: none;
+	}
+
+	#logo {
+		margin-bottom: 1em;
+	}
+
+	#background-wrapper {
+
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		position: fixed;
+
+		#backgrounds {
+			list-style:none;
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+			div {
+				height: 100%;
+				width: 100%;
+				background-position: center center;
+				background-size: cover;	
+				background-image: url('images/background.jpg');
+				display: none;
+
+				&:nth-child(1) {
+					display: block;
+				}
+			}
+
+
+		}
+
+	}
+
+	.content {
+	}
+
+	#wheel {
+		width: 100%;
+		margin: 0 auto;
+		background: url('../images/wheel_back.svg') center center no-repeat;
+		background-size: 100% 100%;
+		float: left;
+		img {
+			width: 100%;
+			height: auto;
+		}
+		#spinner-wrapper {
+			#calle {
+				position: absolute;
+				margin: 32% 0 0 33%;
+				width: 21%;
+				z-index: 999;
+			}
+			@include border-radius(30em);
+			@include single-box-shadow(rgba(0,0,0,.25), 0.2em, 0.2em, 0);
+			margin: 2%;
+			width: 96%;
+			height: 96%;
+		}
+	}
+
+	#arrow {
+		background: url('../images/arrow.svg') 0 0 no-repeat;
+		width: 7em;
+		height: 14em; 
+		top: -7em;
+		position: absolute;
+		margin-left: -6.5em;
+		margin-top: 14.2em;
+	}
+
+	#outer-scandal-wrapper {
+		padding: 0.6em;
+		background: $bildt-blue-color;
+		@include border-radius(0.4em);
+
+
+
+	}
+
+	#scandal-wrapper {
+
+		p {
+			font-size: 0.75em;
+			line-height: 1.5em;
+		}
+
+		.title {
+			color: #6e6e6e;
+			font-size: 1.5em;
+			margin: 0;
+		}
+
+		.years {
+			font-family: "Brandon", Arial, Helvetica, sans-serif;	
+			font-size: 1.1em;
+			color: $bildt-blue-color;
+			margin: 0 0 0.2em;
+		}
+
+		.title, .years {
+			display: inline-block;
+		}
+
+		.sources a {
+			color: $bildt-orange-color;
+		}
+		
+		@include single-box-shadow(rgba(0,0,0,.25), 0.2em, 0.2em, 0);
+		background: white;
+		padding: 1.5em 1.5em 0;
+		height: 28em;
+		@include border-radius(0.4em);
+		position: relative;
+		z-index: 99;
+
+	}
+
+	#scandals { 
+		margin: 0;
+		padding: 0;
+		height: 77%;
+		list-style: none;
+		> .scandal {
+			display: none;
+			.content-wrapper {
+				display: block;
+				height: 17em;
+			}
+			&:nth-child(1) {
+				.title {
+					font-size: 3.2em;
+					color: $bildt-blue-color;
+				}
+			}
+			&:nth-child(9) {
+				.title {
+					font-size: 2.8em;
+					color: $bildt-orange-color;
+				}
+				p {
+					font-size: 1.1em;
+				}
+			}			
+		}
+		> .scandal:nth-child(1) {
+			display: block;
+		}
+	}
+
+}
+
+
+ 
+
+.button {
+
+	&:link, &:hover, &:visited {
+		font-family: "SSUDisplay", Impact, Arial, Helvetica, sans-serif;
+		color: $bildt-blue-color;
+		font-size: 3em;
+		line-height: 1em;
+		border: 4px solid $bildt-blue-color;
+		@include border-radius(0.2em);
+		padding: 0.2em 0.4em;
+		margin-bottom: 0.2em;
+		width: 100%;
+		display: block;
+		text-align: center;
+		@include transition(color .4s ease-out);
+	}
+
+	&:hover {
+		background: $bildt-blue-color;
+		color: white;
+	}
+
+	&.spinning {
+		background: #cccccc !important;
+		border-color: #cccccc !important;
+		color: white;
+	}
+
+	&.spin-top {
+		display: none;
+	}
+
+	&.tweet, &.share {
+		font-size: 1.6em;
+		margin-bottom: 0.6em;
+		width: 41%;
+		display: inline-block;
+		float: left;
+	}
+
+	&.tweet {
+		margin-right: 4%;
+		width: 55%; 
+	}
+
+	&:before {
+		display: inline-block;
+		margin-right: 0.2em;
+	}
+
+	&.tweet:before {
+		content: "4";
+	}
+
+	&.share:before {
+		content: "7";
+	}
+
+}
+
+@media #{$medium} {
+
+
+	section {
+		#arrow {
+			margin-left: -6.5em !important;
+		}
+	}
+
+
+}
+
+@media #{$small-only} { 
+
+	header {
+		padding: 1em 0;
+		display: none;	
+	}
+
+	footer {
+		padding-top: 2em;
+		display: block;
+	}
+
+	#play-pause {
+		display: none;
+	}
+
+	section {
+
+		min-height: 0;
+
+		> .row {
+			margin-top: 0 !important;
+		}
+
+		padding-bottom: 0;
+
+		.spin-top {
+			display: block !important;
+			font-size: 4em !important;
+		}
+
+		.content {
+			padding-top: 2em;
+		}
+
+		.spin-bottom {
+			display: none !important;
+		} 
+
+		font-size: 0.8em !important;
+
+		#wheel {
+			@include rotate(-90deg);
+			margin-bottom: -57%;
+			top: 0 !important;
+		}
+
+		#calle {
+			display: none;
+		}
+
+		#arrow {
+			@include rotate(90deg);
+			margin-top: -9em !important;
+			top: 0;
+			left: -2.1em;
+			margin-left: 0;
+		}
+
+		#scandals {
+			font-size: 1.5em;
+			.title, .years {
+				display: inline-block;
+			}
+
+			.scandal {
+				&:nth-child(1) {
+					.title {
+						font-size: 2em;
+					}
+				}
+				&:nth-child(9) {
+					.title {
+						font-size: 2em;
+					}
+					p {
+						font-size: 1.1em;
+					}
+				}				
+			}
+
+
+		}
+
+		.share, .tweet {
+			width: 48% !important;
+			&:before {
+				font-size: 2.5em;
+				line-height: 1em;
+				margin: 0;
+				display: block;
+			}
+		}
+		
+		#scandal-wrapper, .content-wrapper {
+			height: auto !important;
+		}
+
+	}
+
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) { 
+
+	header {
+		padding-top: 2em; 
+	}
+
+	section {
+
+		font-size: 0.8em !important;
+
+		.content {
+			
+		}
+
+		p {
+			font-size: 1.2em;
+		}
+	}
+
+
+
+}

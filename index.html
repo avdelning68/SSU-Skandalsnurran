@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="ssuApp">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skandalsnurran | SSU</title>
+    <meta property="og:title" content="Skandalsnurran">
+    <meta property="og:image" content="http://skandalsnurran.dev3.se/images/og-image.jpg">
+    <meta property="og:description" content="Vi var tvungna att bygga ett lottohjul för att få plats med alla skandaler. Spela skandalsnurran – förlust varje gång!">
+    <meta type="description" content="Vi var tvungna att bygga ett lottohjul för att få plats med alla skandaler. Spela skandalsnurran – förlust varje gång!">
+    <meta property="og:url" content="http://skandalsnurran.se">
+    <link rel="icon" type="image/x-icon" href="http://www.ssu.se/wp-content/themes/ssu/img/favicon.ico">
+    <link rel="stylesheet" href="css/screen.css" />
+    <script src="js/min/modernizr.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
+    <script src="js/min/foundation.js"></script> 
+    <script src="js/jquery.transit.js"></script>
+    <script src="js/min/jquery.easing.js"></script>
+    <script src="js/min/viewport-units-buggyfill.js"></script>    
+    
+  </head>
+
+  <body>
+
+    <header>
+        <h1 id="ssu-logo">
+        <a href="https://ssu.se" target="_blank">
+          <img src="images/ssu-logo.png" alt="SSU"> 
+        </a>
+        </h1>
+    </header>
+
+    <section id="wheel-section" ng-controller="ScandalController">
+
+      <div id="background-wrapper">
+        <div id="backgrounds">
+          <div ng-repeat="scandal in scandals" style="background-image:url('{{ scandal.background }}');" class="vh100"></div>
+        </div>
+      </div> 
+      <div class="row">
+        <div class="medium-10 medium-centered small-11 small-centered columns">
+
+
+          <div class="row content">
+            <div class="medium-12 small-12 small-centered columns">
+              <h1 id="logo">
+                <img src="images/logo.png" alt="Skandalsnurran"> 
+              </h1>
+            </div>
+            <div class="medium-7 medium-uncentered small-11 small-centered columns">
+              <div id="wheel">
+                <div id="spinner-wrapper">
+                  <div id="calle">
+                    <img src="images/calle.png"/>
+                  </div>
+                  <div id="spinner">
+                    <img src="images/spinner.png"/>
+                  </div>           
+                </div>
+              </div>
+            </div>
+            <div class="medium-5 columns">
+                <div id="outer-scandal-wrapper">
+                  <div id="arrow"></div>
+                  <div id="scandal-wrapper">
+                    <a href="#" class="button spin spin-top">Snurra</a>
+                    <div id="scandals">
+                      <div class="scandal" ng-repeat="scandal in scandals" ng-repeat-directive>
+                        <span class="content-wrapper">
+                          <h1 class="title">{{ scandal.title }}</h1>
+                          <h2 class="years" ng-if="scandal.years">{{ scandal.years }}</h2>
+                          <p>{{ scandal.content }}</p>
+                          <p class="sources" ng-if="scandal.sources" ng-bind-html="scandal.sources | sourcesFilter"></p>
+                        </span>
+                        <a href="#" class="button spin spin-bottom">Snurra!</a>
+                        <a class="tweet button" ng-if="scandal.tweet" href="http://twitter.com/intent/tweet?text={{ scandal.tweet | urlencodeFilter }}" target="_blank">Tweeta</a>
+                        <a class="share button" ng-if="scandal.tweet" href="http://www.facebook.com/sharer/sharer.php?u=http://ssu.se" target="_blank">Dela</a>
+                      </div>
+                      <div style="clear:both;"></div>
+                      
+                      
+                    </div>
+                  </div>
+                </div>        
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+      
+    </section>
+
+    <footer>
+        <h1 id="ssu-logo">
+        <a href="https://ssu.se" target="_blank">
+          <img src="images/ssu-logo.png" alt="SSU"> 
+        </a>
+        </h1>
+    </footer> 
+
+    <audio src="audio/tivoli.mp3" id="background-audio" loop autoplay></audio>
+    <audio src="audio/spin.mp3" id="spin-audio"></audio>
+    
+    <div id="play-pause">
+      <a class="pause" href="#"><span>Starta/Stoppa musik</span></a>
+    </div>
+
+
+    <script src="js/screen.js?ss"></script>  
+  </body>
+
+</html>
