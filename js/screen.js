@@ -103,6 +103,12 @@ function contentFunctions() {
 				} 
 			});
 
+			if ( previous.length === 16 ) {
+
+				previous = [0]; 
+
+			} 
+
 			if ( previous.length === 0 ) {
 
 				next = 0;
