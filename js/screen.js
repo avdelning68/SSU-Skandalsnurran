@@ -28,7 +28,7 @@ var ssuApp = angular.module("ssuApp",[])
 ssuApp.controller('ScandalController',['$http','$scope','$rootScope','$sce', 
     function( $http, $scope, $rootScope, $sce ) {
 
-		$http({method: 'GET', url: '/json/scandals.json'}).
+		$http({method: 'GET', url: '/json/scandals_kreab.json'}).
 		success(function(data, status, headers, config) {
 		  $scope.scandals = data;
 		}); 
